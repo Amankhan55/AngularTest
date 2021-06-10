@@ -12,7 +12,26 @@ Assert: This part verifies the functionailty that we are unit testing is giving 
 
 import { customerReservation } from './customerReservation.component';
 
-describe('Room Reservation', () => {
+describe('Customer Reservation', () => {
+    let custService: customerReservation;
+
+    //For initializing
+    beforeEach(() => {
+        custService = new customerReservation();
+    });
+
+    //For clearing
+    afterEach(() => {
+        //custService = null;
+    });
+
+    beforeAll(() => {
+
+    });
+
+    afterAll(() => {
+
+    });
     
     it('Testing room is reserved or not', () => {
         // Arrange
@@ -23,6 +42,20 @@ describe('Room Reservation', () => {
 
         //Assert
             expect(isReserved).toBeTruthy();
+    });
+
+    it('should register customer / increase current customer count by 1', () => {
+
+        let custcount = custService.registerCustomer();
+
+        expect(custcount).toEqual(11);
+    });
+
+    it('should unregister customer / decrease current customer count by 1', () => {
+
+        let custcount = custService.unRegisterCustomer();
+
+        expect(custcount).toEqual(9);
     });
 
 });

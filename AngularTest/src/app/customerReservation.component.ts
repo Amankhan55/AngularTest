@@ -12,4 +12,14 @@ export class customerReservation {
 
         return roomReserved;
     }
+
+    //Increase the counter by 1
+    registerCustomer() {
+        return ++this.customerCount;
+    }
+
+    //Decrease the counter by 1
+    unRegisterCustomer() {
+        return --this.customerCount
+    }
 }
